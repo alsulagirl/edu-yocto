@@ -1,0 +1,3 @@
+[submodule "edu-git"]
+	path = edu-git
+	url = https://github.com/alsulagirl/edu-git.git
