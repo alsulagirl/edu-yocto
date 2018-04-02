@@ -1,0 +1,20 @@
+1. source ~/SDK/poky/oe-init-build-env ~/SDK/build/
+2. //    ~/SDK/build/conf/local.conf
+	CONF_VERSION = "1"
+	MACHINE = "raspberrypi2"
+	PREFERRED_VERSION_linux-raspberrypi = "4.%"
+	DISTRO_FEATURES_remove = "x11 wayland"
+	DISTRO_FEATURES_append = " systemd"
+	VIRTUAL-RUNTIME_init_manager = "systemd"
+	IMAGE_INSTALL_append = "ntp"
+3. yocto-layer create bpo
+4. mv meta-bpo ../
+5. cd meta-bpo
+6. -> recipes-example //рецепт 
+	example_0.1.bb //метод сборки
+	example-0.1/   //файлы исходного кода
+7. bitbake-layers add-layer ~/SDK/meta-bpo/   //Добавление слоя (своего рецепта)
+ 
+8. bitbake bpontp //сборка 
+9. bitbake rpi-basic-image 
+
