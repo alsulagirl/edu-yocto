@@ -14,6 +14,15 @@
 	example_0.1.bb //метод сборки
 	example-0.1/   //файлы исходного кода
 7. bitbake-layers add-layer ~/SDK/meta-bpo/   //Добавление слоя (своего рецепта)
+//local.conf
+CONF_VERSION = "1"
+MACHINE = "raspberrypi2"
+PREFERRED_VERSION_linux-raspberrypi = "4.%"
+DISTRO_FEATURES_remove = "x11 wayland"
+DISTRO_FEATURES_append = " systemd"
+VIRTUAL-RUNTIME_init_manager = "systemd"
+IMAGE_INSTALL_append = "ntp bpontp"
+
  
 8. bitbake bpontp //сборка 
 9. bitbake rpi-basic-image 
